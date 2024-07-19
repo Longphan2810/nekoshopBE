@@ -13,7 +13,7 @@ public class CategoryDTO implements Serializable {
 	
 	private Integer idCategory;
 	
-	@NotBlank(message = "Vui Long Nhap Ten Loai")
+	@NotBlank(message = "NAME_CATE_NOTNULL")
 	private String name;
 	
 

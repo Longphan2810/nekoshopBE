@@ -3,6 +3,8 @@ package com.example.demo.domain;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,11 +29,13 @@ public class ProductDetail implements  Serializable {
 	private String size;
 	private int quality;
 	
-	
+	@JsonIgnore
 	@ManyToOne()
 	@JoinColumn(name = "id_Product")
 	private Product product;
 	
+
+	@JsonIgnore
 	@OneToMany(mappedBy = "productDetail")
 	private List<OrderDetail> listOrderDetail;
 	

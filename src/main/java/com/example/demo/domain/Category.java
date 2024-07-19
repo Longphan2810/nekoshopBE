@@ -2,6 +2,8 @@ package com.example.demo.domain;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,6 +24,7 @@ public class Category {
 	@Column(name = "name",columnDefinition = "nvarchar(255) not null ")
 	private String name;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "category")
 	private List<Product> listProduct;
 
