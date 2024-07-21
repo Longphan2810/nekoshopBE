@@ -24,6 +24,7 @@ public class CategoryServiceImpl implements CategoryServiceInterface {
 
 	@SuppressWarnings("unchecked")
 	public Category save(Category cate) {
+	
 		if (categoryRepository.findByNameLike(cate.getName()) != null) {
 			throw new RuntimeException("CATE_ALREADY_EXISTS");
 		} else {
@@ -102,7 +103,7 @@ public class CategoryServiceImpl implements CategoryServiceInterface {
 
 	@Override
 	public List<Category> findAllByNameLike(String name) {
-		return categoryRepository.findAllByNameLike(name);
+		return categoryRepository.findAllByNameLike("%"+name+"%");
 	}
 
 	public Category findByNameLike(String name) {
