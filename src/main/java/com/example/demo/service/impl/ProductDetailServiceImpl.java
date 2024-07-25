@@ -85,7 +85,13 @@ public class ProductDetailServiceImpl implements ProductDetailServiceInterface {
 	}
 
 	public ProductDetail findByProductAndSize(Product product, String size) {
-		return productDetailRepository.findByProductAndSize(product, size);
+		try {
+			return productDetailRepository.findByProductAndSize(product, size);
+		} catch (Exception e) {
+			// TODO: handle exception
+			throw new RuntimeException("PRODUCT_DETAIL_NULL");
+		}
+		
 	}
 
 	public ProductDetail findById(int id) {

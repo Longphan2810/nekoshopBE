@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,7 +59,14 @@ public class ManageCategoryController {
 	@DeleteMapping("category/{id}")
 	public ApiRespone<Category> deleteCate(@PathVariable("id") int idCate){
 		ApiRespone<Category> respone = new ApiRespone<>();
-		categoryService.deleteById(idCate);
+			
+		try {
+			categoryService.deleteById(idCate);
+		} catch (DataIntegrityViolationException e) {
+			// TODO: handle exception
+			throw new RuntimeException("CATE_CAN_NOT_DELETE");
+		}
+		
 		return respone;
 	
 	}

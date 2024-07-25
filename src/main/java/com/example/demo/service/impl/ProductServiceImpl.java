@@ -72,6 +72,12 @@ public class ProductServiceImpl implements ProductServiceInterface {
 	public Product getById(Integer id) {
 		return productRepository.findById(id).orElseThrow(()-> new RuntimeException("PRODUCT_NULL"));
 	}
+	
+	
+
+	public Product findByName(String name) {
+		return productRepository.findByName(name);
+	}
 
 	@Override
 	public void delete(Product entity) {

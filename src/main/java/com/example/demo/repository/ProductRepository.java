@@ -9,6 +9,8 @@ import com.example.demo.domain.Category;
 import com.example.demo.domain.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
+	
+	public Product findByName(String name);
 
 	public Page<Product> findAllByNameLike(String name,Pageable pageable);
 	

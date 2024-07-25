@@ -60,5 +60,14 @@ public class Product  implements Serializable{
 	@JsonIgnore
 	@OneToMany(mappedBy = "product")
 	private List<ProductDetail> listProductDetails;
+
+	@Override
+	public String toString() {
+		return "Product [idProduct=" + idProduct + ", name=" + name + ", price=" + price + ", status=" + status
+				+ ", disscount=" + disscount + ", description=" + description + ", productDate=" + productDate
+				+ ", nameImage=" + nameImage + "]";
+	}
+	
+	
 	
 }
