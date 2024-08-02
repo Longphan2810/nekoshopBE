@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.controller.admin;
 
 import java.util.List;
 
@@ -30,6 +30,7 @@ public class ManageCategoryController {
 	public ApiRespone<List<Category>> getListCate(){
 		ApiRespone<List<Category>> respone = new ApiRespone<>();
 		respone.setResult(categoryService.findAll());
+		System.out.println("+++++++++++++++++++++++");
 		return respone;
 	}
 
@@ -37,6 +38,7 @@ public class ManageCategoryController {
 	public ApiRespone<List<Category>> getCateByName(@PathVariable("name") String name){
 		ApiRespone<List<Category>> respone = new ApiRespone<>();
 		respone.setResult(categoryService.findAllByNameLike(name));
+		System.out.println("+++++++++++++++++++++++");
 		return respone;
 	}
 	

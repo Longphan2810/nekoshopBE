@@ -14,7 +14,20 @@ public enum ErrorEnum {
 	,
 	
 	// code error productDetail : 120*
-	PRODUCT_DETAIL_NULL(1201,"Product Detail not exists ");
+	PRODUCT_DETAIL_NULL(1201,"Product Detail not exists "),
+	
+	//code  register : 130*
+	USE_ALREADY_EXIST(1301,"User already exist"),PASS_INVALID(1302,"Password invalid(min 8 character)"),
+	WRONG_PASS_CONFIRM(1303,"Wrong pass confirm "),MAIL_INVALID(1304,"Mail Invalid"),MAIL_NULL(1305,"Mail null"),
+	EXPIRATION_TOKEN(1306,"EXPIRATION TOKEN"),OLD_TOKEN(1307,"Old TOKEN"),
+	
+	// code login : 140*
+	USE_NOT_EXIST(1401,"User not exist"),BLOCKED_USER(1402,"Blocked user"),USER_NEED_VERIFY_ACCOUNT(1403,"User need verify account"),
+	WRONG_PASSWORD(1404,"Wrong password"),
+	
+	
+	
+	;
 	private int code;
 	private String message;
 	private ErrorEnum(int code, String message) { 

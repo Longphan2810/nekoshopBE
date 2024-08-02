@@ -35,6 +35,11 @@ public class CookieService {
 
 		Cookie[] cookies = request.getCookies();
 
+		if(cookies== null) {
+			System.out.println("cookie null");
+			return null;
+		}
+		
 		for (Cookie cookie : cookies) {
 
 			if (cookie.getName().equals(name)) {

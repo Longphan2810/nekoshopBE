@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.controller.admin;
 
 import java.util.List;
 
@@ -62,6 +62,7 @@ public class ManageProductController {
 		ApiRespone<List<Product>> respone = new ApiRespone<List<Product>>();
 
 		respone.setResult(productServiceImpl.findAll());
+		System.out.println("++++++++++++++++++++++++++++++++++++");
 
 		return respone;
 	}
@@ -99,7 +100,7 @@ public class ManageProductController {
 			throw new RuntimeException("PRODUCT_DETAIL_NULL");
 		}
 		
-		
+		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		respone.setResult(productRespone);
 
 		return respone;

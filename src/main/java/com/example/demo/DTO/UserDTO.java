@@ -9,6 +9,7 @@ import com.example.demo.domain.Users;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,16 +18,18 @@ import lombok.NoArgsConstructor;
 public class UserDTO {
 	
 
-	@NotBlank(message = "Vui long nhap name")
+	
 	private String name;
 	
 	
-	@NotBlank(message = "Vui long nhap password")
-	@Min(value = 8)
+	@NotBlank(message = "PASS_INVALID")
+	@Size(min = 8, message = "PASS_INVALID")
 	private String password;
 	
-	@Email(message = "Khong de trong email")
-	@NotBlank(message = "Vui  long nhap email")
+	private String confirmPassword;
+	
+	@Email(message = "MAIL_INVALID")
+	@NotBlank(message = "MAIL_NULL")
 	private String email;
 	
 	private boolean role = false;

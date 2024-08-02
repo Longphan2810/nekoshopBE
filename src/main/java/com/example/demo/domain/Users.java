@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+
 import java.util.Date;
 import java.util.List;
 
@@ -40,6 +41,9 @@ public class Users {
 	@OneToMany(mappedBy = "user")
 	private List<DeliveryAddress> listDeliveryAddresses;
 
+	@OneToMany(mappedBy = "user")
+	private List<ShopingCart> listShopingCart;
+	
 	@Override
 	public String toString() {
 		return "Users [ email=" + email + ", name=" + name + ", role=" + role + "]";

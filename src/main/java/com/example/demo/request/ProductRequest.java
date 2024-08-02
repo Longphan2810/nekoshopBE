@@ -1,16 +1,14 @@
-package com.example.demo.DTO;
+package com.example.demo.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data @AllArgsConstructor @NoArgsConstructor
-public class ItemForCart {
+public class ProductRequest {
+
 	private int idProduct;
-	private String name;
-	private float price;
-	private String nameImage;
-	private int idProductDetail;
 	private String size;
 	private int quantity;
+	
 }

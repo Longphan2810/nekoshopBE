@@ -38,7 +38,7 @@ public class ShopCartService {
 			int qualityBuy = shopCart.get(itemForCart);
 			ProductDetail pd = productDetailServiceImpl.findById(itemForCart.getIdProductDetail());
 		
-			itemForCart.setQuality(pd.getQuality());
+			itemForCart.setQuantity(pd.getQuality());
 			updatedCart.put(itemForCart, qualityBuy);
 		}
 		

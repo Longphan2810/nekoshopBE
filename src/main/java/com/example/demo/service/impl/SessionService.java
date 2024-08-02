@@ -11,28 +11,29 @@ public class SessionService {
 	HttpSession session;
 
 	public Object get(String name) {
-		
-		
-		
+
 		return session.getAttribute(name);
 
 	}
-	
+
 	public HttpSession getSession() {
-		
+
 		return this.session;
 	}
-	
-	public void set(String name,Object value) {
-		
+
+	public void set(String name, Object value) {
+
 		session.setAttribute(name, value);
-		
+
 	}
 	
+	public String getIdSession() {
+		return session.getId();
+	}
+
 	public void remove(String name) {
-		
+
 		session.removeAttribute(name);
 	}
-	
 
 }
