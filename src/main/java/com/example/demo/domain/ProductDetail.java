@@ -29,6 +29,7 @@ public class ProductDetail implements  Serializable {
 	private String size;
 	private int quality;
 	
+	
 	@JsonIgnore
 	@ManyToOne()
 	@JoinColumn(name = "id_Product")

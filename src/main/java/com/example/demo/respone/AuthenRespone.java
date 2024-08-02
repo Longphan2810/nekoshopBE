@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 public class AuthenRespone {
 	
 	private boolean authen;
+	private String emailUser;
 	private String token;
 
 }

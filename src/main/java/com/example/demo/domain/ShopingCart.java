@@ -1,4 +1,6 @@
 package com.example.demo.domain;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +19,7 @@ public class ShopingCart {
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private int idShopingCart;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private Users user;
@@ -27,5 +30,6 @@ public class ShopingCart {
 	
 	private int quantity;
 	
+	private float price; 
 	
 }

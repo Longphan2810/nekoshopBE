@@ -57,7 +57,7 @@ public class AuthenService {
 
 		authRespone.setAuthen(true);
 		authRespone.setToken(token);
-
+		authRespone.setEmailUser(authRequest.getEmail());
 		respone.setResult(authRespone);
 
 		return respone;

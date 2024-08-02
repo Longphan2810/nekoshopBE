@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @Data @AllArgsConstructor @NoArgsConstructor
 public class ProductRespone {
 	private Integer idProduct;
+	private Integer idProductDetail;
 	private String name;
 	private Float price;
 	private Boolean status;
