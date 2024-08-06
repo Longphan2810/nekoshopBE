@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.domain.ProductDetail;
 import com.example.demo.domain.ShopingCart;
 import com.example.demo.domain.Users;
 import com.example.demo.request.CartRequest;
@@ -70,6 +71,25 @@ public class ShopCartController {
 		}
 
 		respone.setResult(cartRespone);
+		return respone;
+	}
+	@GetMapping("/shopCartCheck/{email}")
+	public ApiRespone<List<ProductDetail>> getShopCartCheck(@PathVariable("email") String email) {
+
+		ApiRespone<List<ProductDetail>> respone = new ApiRespone<>();
+
+		Users user = userServiceImpl.findByEmail(email);
+
+
+		List<ShopingCart> cart = shopingCartService.findAllByUser(user);
+		List<ProductDetail> listProductDetail = new ArrayList<>();
+		for (ShopingCart shopingCart : cart) {
+
+			listProductDetail.add(shopingCart.getProductDetail());
+
+		}
+
+		respone.setResult(listProductDetail);
 		return respone;
 	}
 

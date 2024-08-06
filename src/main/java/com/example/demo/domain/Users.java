@@ -23,7 +23,7 @@ public class Users {
 	private int idUser;
 	private String password;
 	private String email;
-	private Date birhday;
+	private Date birthday;
 	private String phone;
 	private Boolean gender;
 	

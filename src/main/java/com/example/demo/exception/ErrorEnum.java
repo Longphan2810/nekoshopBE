@@ -25,7 +25,8 @@ public enum ErrorEnum {
 	USE_NOT_EXIST(1401,"User not exist"),BLOCKED_USER(1402,"Blocked user"),USER_NEED_VERIFY_ACCOUNT(1403,"User need verify account"),
 	WRONG_PASSWORD(1404,"Wrong password"),
 	
-	
+	// code order : 150*
+	LARGER_STOCK(1501,"larger than the product in stock"),ADDRESS_DELIVERY_INVALID(1502,"need to set default  address")
 	
 	;
 	private int code;

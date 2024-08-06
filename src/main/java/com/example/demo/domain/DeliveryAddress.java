@@ -1,8 +1,7 @@
 package com.example.demo.domain;
 
 
-
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,6 +31,7 @@ public class DeliveryAddress {
 	@Column(columnDefinition = "nvarchar(100)")
 	private String name;
 	
+	@JsonIgnore
 	@ManyToOne()
 	@JoinColumn(name = "id_User")
 	private Users user;
