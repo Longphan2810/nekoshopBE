@@ -51,7 +51,7 @@ public class UseController {
 		
 		BeanUtils.copyProperties( userResponse,user);
 		
-		userServiceImpl.save(user);
+		userServiceImpl.update(user);
 	
 		response.setResult(userResponse);
 

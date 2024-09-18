@@ -6,6 +6,8 @@ import java.util.Date;
 import org.apache.logging.log4j.CloseableThreadContext.Instance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Enum.UserStatusEnum;
@@ -39,6 +41,7 @@ public class AuthenService {
 
 		Users userNeedAuthen = userServiceImpl.findByEmail(authRequest.getEmail());
 
+		PasswordEncoder pe = new BCryptPasswordEncoder(10);		
 		if (userNeedAuthen == null) {
 			throw new RuntimeException("USE_NOT_EXIST");
 		}
@@ -48,7 +51,9 @@ public class AuthenService {
 		if (userNeedAuthen.getStatus().equalsIgnoreCase(UserStatusEnum.wait.name())) {
 			throw new RuntimeException("USER_NEED_VERIFY_ACCOUNT");
 		}
-		if (!userNeedAuthen.getPassword().equals(authRequest.getPassword())) {
+		
+		if (!pe.matches(authRequest.getPassword(), userNeedAuthen.getPassword())) {
+			System.out.println(pe.encode(userNeedAuthen.getPassword()));
 			throw new RuntimeException("WRONG_PASSWORD");
 		}
 		ApiRespone<AuthenRespone> respone = new ApiRespone<AuthenRespone>();

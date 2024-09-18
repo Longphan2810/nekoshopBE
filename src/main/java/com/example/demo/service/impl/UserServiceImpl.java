@@ -1,10 +1,13 @@
 package com.example.demo.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.domain.Users;
@@ -23,6 +26,20 @@ public class UserServiceImpl implements UserServiceInterface {
 
 	@Override
 	public <S extends Users> S save(S entity) {
+		
+		if(entity.getPassword().startsWith("")) {
+			PasswordEncoder pe = new BCryptPasswordEncoder(10);		
+			
+			System.out.println(entity.getPassword().trim());
+			entity.setPassword(pe.encode(entity.getPassword().trim()));
+		}
+		
+		
+		return userRepository.save(entity);
+	}
+	
+	public <S extends Users> S update(S entity) {
+			
 		return userRepository.save(entity);
 	}
 
@@ -65,6 +82,10 @@ public class UserServiceImpl implements UserServiceInterface {
 	@Override
 	public void deleteById(Integer id) {
 		userRepository.deleteById(id);
+	}
+
+	public Optional<Users> findById(Integer id) {
+		return userRepository.findById(id);
 	}
 
 	@SuppressWarnings("deprecation")

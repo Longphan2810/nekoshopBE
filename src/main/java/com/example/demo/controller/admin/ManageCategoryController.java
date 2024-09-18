@@ -42,14 +42,14 @@ public class ManageCategoryController {
 		return respone;
 	}
 	
-	@PostMapping("category")
+	@PostMapping("manageCategory")
 	public ApiRespone<Category> postCate(@RequestBody Category cate){
 		ApiRespone<Category> respone = new ApiRespone<>();
 		respone.setResult(categoryService.save(cate));
 		return respone;
 	}
 	
-	@PutMapping("category/{id}")
+	@PutMapping("manageCategory/{id}")
 	public ApiRespone<Category> putCate(@RequestBody Category cate,@PathVariable("id") int idCate){
 		ApiRespone<Category> respone = new ApiRespone<>();
 		System.out.println("check");
@@ -58,7 +58,7 @@ public class ManageCategoryController {
 	
 	}
 	
-	@DeleteMapping("category/{id}")
+	@DeleteMapping("manageCategory/{id}")
 	public ApiRespone<Category> deleteCate(@PathVariable("id") int idCate){
 		ApiRespone<Category> respone = new ApiRespone<>();
 			

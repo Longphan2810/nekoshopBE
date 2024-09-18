@@ -99,7 +99,7 @@ public class RegisterController {
 			userNeedConfirm.setTimeToken(null);
 			userNeedConfirm.setToken(null);
 			userNeedConfirm.setStatus("active");
-			userServiceImpl.save(userNeedConfirm);
+			userServiceImpl.update(userNeedConfirm);
 		} else {
 			userServiceImpl.delete(userNeedConfirm);
 			

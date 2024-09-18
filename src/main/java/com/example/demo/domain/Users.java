@@ -4,6 +4,8 @@ package com.example.demo.domain;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,6 +23,7 @@ import lombok.NoArgsConstructor;
 public class Users {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idUser;
+	@JsonIgnore
 	private String password;
 	private String email;
 	private Date birthday;
@@ -33,14 +36,16 @@ public class Users {
 	private String name;
 	private boolean role;
 	
+	@JsonIgnore
 	private String token;
+	@JsonIgnore
 	private Long timeToken;
 	
 	private String status;
-	
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<DeliveryAddress> listDeliveryAddresses;
-
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<ShopingCart> listShopingCart;
 	
@@ -49,7 +54,7 @@ public class Users {
 		return "Users [ email=" + email + ", name=" + name + ", role=" + role + "]";
 	}
 	
-	
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<Orders> listOrder;
 	
